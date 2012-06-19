@@ -1,0 +1,6 @@
+[validators]
+validators=validate_eldis_form
+
+[actions]
+action.failure=traverse_to:string:prefs_eldis_form
+action.success=redirect_to:string:prefs_eldis_manage_form

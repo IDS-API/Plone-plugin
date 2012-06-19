@@ -1,0 +1,100 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      lang="en-US"
+      metal:use-macro="here/prefs_eldis_form/macros/master"> 
+
+<body>
+						
+		<div class="documentContent" metal:fill-slot="owsa_content">
+			<h3>Eldis Search API</h3>
+			<h4>Manage Configuration</h4>
+
+			<p>In the below form, there needs to be set different eldis properties to create the content.</p>
+
+		
+			<form name="edit_form"
+						action="href"
+						tal:attributes="action string:$here_url/$template_id"
+						method="post"
+						enctype="multipart/form-data"
+						tal:define ="pp here/portal_properties;
+									 props_sheet python:getattr(pp, 'ELDISAPI_PROPERTIES');">
+
+					<fieldset>
+							<legend i18n:translate="legend_setup_options">Eldis setup options</legend>
+							<div class="field"
+									 tal:define="property_id string:ELDIS_STATE;
+												 eldis_state python:props_sheet.getProperty(property_id, '');
+												 error python:test(errors.has_key(property_id), errors.get(property_id), None);"
+									 tal:attributes="class python:test(error, 'field error', 'field')"
+									 tal:condition="python:props_sheet.hasProperty(property_id)">
+									<label>Article Creation State</label>
+									<div class="formHelp" id="eldis_state_help">
+											Select the state when Eldis article will be created i.e. [publish/submit/draft]
+									</div>
+									<div tal:content="error">Validation error output</div>
+									<div tal:define="ct eldis_state;">
+											<input name="ELDIS_STATE"
+													id="ELDIS_STATE_PUBLISH"
+													type="radio"
+													value="publish"
+													tal:attributes="checked python:test(ct=='publish', 'checked', '')"/>
+										  <label for="publish">Publish</label>
+										  <br />
+										  <input name="ELDIS_STATE"
+													id="ELDIS_STATE_SUBMIT"
+													type="radio"
+													value="submit"
+													tal:attributes="checked python:test(ct=='submit', 'checked', '');"/>
+										  <label for="submit">submit</label>
+										  <br />
+										  <input name="ELDIS_STATE"
+													id="ELDIS_STATE_DRAFT"
+													type="radio"
+													value="draft"
+													tal:attributes="checked python:test(ct=='draft', 'checked', '');"/>
+										  <label for="draft">draft</label>
+									</div>
+							</div>	
+							
+							<div class="field"
+									 tal:define="property_id string:ELDIS_FOLDER;
+												 eldis_folder python:props_sheet.getProperty(property_id, '');
+												 error python:test(errors.has_key(property_id), errors.get(property_id), None);"
+									 tal:attributes="class python:test(error, 'field error', 'field')"
+									 tal:condition="python:props_sheet.hasProperty(property_id)">
+									<label>Article Folder</label>
+									<div class="formHelp" id="eldis_folder_help">
+											Select the folder in which eldis article will be created. Folder should exist at the root.
+									</div>
+									<div tal:content="error">Validation error output</div>
+									<input name="ELDIS_FOLDER"
+												 value=""
+												 size="40"
+												 tabindex=""
+												 tal:attributes="name property_id;
+																 value eldis_folder;
+																 tabindex tabindex/next;" />
+							</div>								
+
+					</fieldset>
+							
+					<div class="formControls"
+								tal:define="process_creation request/process_creation|nothing;">
+							<input class="context"
+										tabindex=""
+										type="submit"
+										value="Save"
+										name="form.button.Save"
+										i18n:attributes="value"
+										tal:attributes="tabindex tabindex/next"
+										/>
+					</div>
+
+					<input type="hidden" name="form.submitted" value="1" />
+			</form>
+
+		</div>
+</body>
+</html>

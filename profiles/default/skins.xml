@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins"
+        meta_type="Plone Skins Tool"
+        allow_any="False"
+        cookie_persistence="False"
+        request_varname="plone_skin">
+
+ <object name="eldis_images"
+         meta_type="Filesystem Directory View"
+         directory="Eldis/skins/eldis_images"/>
+ <object name="eldis_styles"
+         meta_type="Filesystem Directory View"
+         directory="Eldis/skins/eldis_styles"/>
+ <object name="eldis_templates"
+         meta_type="Filesystem Directory View"
+         directory="Eldis/skins/eldis_templates"/>
+ 
+ <skin-path name="*">
+  <layer insert-after="custom" 
+         name="eldis_images"/>
+  <layer insert-after="custom" 
+         name="eldis_styles"/>
+  <layer insert-after="custom" 
+         name="eldis_templates"/>
+ </skin-path>
+
+</object>

@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="Eldis">
+
+  <include package="Products.GenericSetup" file="meta.zcml" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Eldis"
+      directory="profiles/default"
+      description="Extension profile for Eldis."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+			
+</configure>

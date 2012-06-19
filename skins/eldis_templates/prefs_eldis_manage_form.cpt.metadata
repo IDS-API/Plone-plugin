@@ -1,0 +1,12 @@
+[security]
+View=1:Authenticated
+
+[default]
+title = Manage Configuration
+
+[validators]
+validators = validate_eldis_manage_form
+
+[actions]
+action.success=traverse_to:string:prefs_eldis_manage_set
+action.failure=traverse_to:string:prefs_eldis_manage_form

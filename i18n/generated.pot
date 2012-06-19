@@ -1,0 +1,23 @@
+# archgenxml generated POT File
+# unknown <unknown>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: Eldis\n"
+"POT-Creation-Date: Mon Aug 01 10:40:49 2011\n"
+"PO-Revision-Date: Mon Aug 01 10:40:49 2011\n"
+"Last-Translator: unknown <unknown>\n"
+"Language-Team: unknown <unknown>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: Eldis\n"
+
+#. Default: "Bodytext"
+#: EldisArticle.py
+msgid "Eldis_label_bodyText"
+msgstr ""
+

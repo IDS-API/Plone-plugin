@@ -1,0 +1,12 @@
+[security]
+View=1:Authenticated
+
+[default]
+title = Eldis Search API
+
+[validators]
+validators = validate_eldis_form
+
+[actions]
+action.success=traverse_to:string:prefs_eldis_set
+action.failure=traverse_to:string:prefs_eldis_form

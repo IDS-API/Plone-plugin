@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      lang="en-US"
+      metal:use-macro="here/prefs_eldis_form/macros/master"> 
+
+<body>
+						
+		<div class="documentContent" metal:fill-slot="owsa_content">
+			<h3>Eldis Search API</h3>
+			<h4>Documentation</h4>
+
+			<p>The IDS web API provides a way for programmers to use the data and metadata contained in the datasets that IDS maintains - namely BRIDGE and ELDIS. The API can be used for search or for retreiving all the metadata about an object stored in the IDS datasets.</p>
+
+			<p><b>Overview:</b>
+				The Eldis search API is a HTTP service in a REST style architecture. It allows search of datacore assets based upon a query and a number of meta-data criteria. It also allows a searching of the category hierarchy within the datacore. Data is returned as either JSON or XML, and asset records can be returned in a number of formats, including short form and full form.
+			<br/>
+				<b>Authentication</b>
+				In order to successfully use the API, users are required to sign up with a Unique ID. It is required that these tokens are sent with every request within the HTTP header. To register for an API key visit http://api.ids.ac.uk/accounts/register/ 
+			<br/>
+				<b>Rate limiting</b>
+				Users are currently limited to 30 HTTP requests per minute. Once this has been exceeded, users will receive an HTTP 400 response from the server.
+			<br/>
+				<b>Searching</b>
+				This allows the assets in the datacore to be searched. In order to search, users will need to specify the /search/ parameter after the base URL, and follow this with the query for that search (for example, to search for biofuels, /search/biofuels/etc..). Users are further able to filter the results by specifying a combination of the meta-data criteria below. Each of these should appear in the same /key/value/ format.
+			</p>
+			<p>For more API details please visit http://api.ids.ac.uk/docs</p>
+				<form action="prefs_eldis_article_get" metho="post">
+					<fieldset>
+							<legend i18n:translate="legend_setup_options">Cron options</legend>	
+							<div class="field">
+									<label>Cron</label>
+									<div class="formHelp" id="eldis_cron_help">
+											Put this in the cron jobs <br/> 
+											wget -q http://yoursite.com/prefs_eldis_article_get --http-user=username --http-passwd=YourPassword
+									</div>
+							</div>	
+							
+							<input class="context"
+										tabindex=""
+										type="submit"
+										value="Generate"
+										name="form.button.Gen"
+										i18n:attributes="value"
+										tal:attributes="tabindex tabindex/next"
+										/>						
+							<input type="hidden" name="form.submitted" value="1" />
+					</fieldset>	
+				</form>
+		</div>
+</body>
+</html>
