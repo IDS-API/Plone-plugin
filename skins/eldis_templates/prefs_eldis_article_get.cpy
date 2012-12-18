@@ -43,7 +43,7 @@ if ap['ELDIS_PUBLISHED_BEFORE']!='':
 if ap['ELDIS_PUBLISHED_YEAR']!='':
     sstr=sstr + '&document_published_year=' + url_quote(string.strip(ap['ELDIS_PUBLISHED_YEAR']))	
 	 
-xml_host_url=string.strip(ap['ELDIS_HOST']) + '/openapi/' + string.strip(ap['ELDIS_DATATYPE'])+ '/get_all/documents/full?' + 'num_results=' + url_quote(string.strip(ap['ELDIS_NO_RECORDS'])) 
+xml_host_url=string.strip(ap['ELDIS_HOST']) + '/openapi/' + string.strip(ap['ELDIS_DATATYPE'])+ '/search/documents/full?' + 'num_results=' + url_quote(string.strip(ap['ELDIS_NO_RECORDS'])) 
 xml_info='&_token_guid=' + url_quote(string.strip(ap['ELDIS_GUID'])) + sstr +'&_accept=application/xml'
 
 logger = logging.getLogger("Plone")
